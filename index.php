@@ -22,7 +22,6 @@
         </div>
         <div class="large-6 columns">
             <p>List goes here!</p>
-            <p>Changeto test commit text editor.</p>
         </div>
     </div>
 
