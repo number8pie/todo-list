@@ -54,15 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             ?>
         </table>
 
-        <?php 
-            //$data = $db->query("SELECT * FROM list_data");
-
-            //echo "<pre>";
-            //$screenData = $data->fetchAll(PDO::FETCH_ASSOC);
-            //var_dump($screenData);
-            //echo "</pre>";
-        ?>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>

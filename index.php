@@ -1,3 +1,13 @@
+<?php
+
+$mysqli = new mysqli("localhost", "lee", "lee1", "todo_list");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+    $mysqli->query("INSERT INTO list_data (description) VALUES ('$_POST[todo_new]');");
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -17,11 +27,29 @@
 
     <div class="row">
         <div class="large-6 columns">
-            <label>Add to list:</label>
-            <input type="text" placeholder="Thing you need to do!" />
+          <form method="post" action="index.php">
+              <label for="todo_new">Enter new todo list item:</label>
+              <input type="text" name="todo_new" id="todo_new">
+              <input type="submit" value="add to list">
+          </form>
         </div>
         <div class="large-6 columns">
-            <p>List goes here!</p>
+          <table>
+              <?php
+
+              $query = "SELECT * FROM list_data;";
+              $list = $mysqli->query($query);
+
+              while ($row = $list->fetch_array(MYSQLI_ASSOC)):
+                  echo "<tr>";
+                  foreach($row as $list_item) {
+                      echo "<td>" . $list_item . "</td>";
+                  }
+                  echo "</tr>";
+              endwhile;
+
+              ?>
+          </table>
         </div>
     </div>
 
