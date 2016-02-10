@@ -34,28 +34,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
           </form>
         </div>
         <div class="large-6 columns">
+          <!--
+          Tried using a foreach loop, turnsout I don't need one! See below.
           <table>
               <?php
 
-              $query = "SELECT * FROM list_data;";
-              $list = $mysqli->query($query);
+              //$query = "SELECT * FROM list_data;";
+              //$list = $mysqli->query($query);
 
-              while ($row = $list->fetch_array(MYSQLI_ASSOC)):
-                  echo "<tr>";
+              //while ($row = $list->fetch_array(MYSQLI_ASSOC)):
+                  //echo "<tr>";
 
-                //  foreach($row as $list_item) {
-                //      echo "<td>" . $list_item . "</td>";
-                //  }
+                  //foreach($row as $list_item) {
+                      //echo "<td>" . $list_item . "</td>";
+                  //}
 
-                  foreach ($row as $id => $description) {
-                    echo "<td>" . $id . $description . "</td>";
-                  }
+                  //foreach ($row as $id => $description) {
+                    //echo "<td>" . $id . $description . "</td>";
+                  //}
 
-                  echo "</tr>";
+                  //echo "</tr>";
 
-              endwhile;
+              //endwhile;
 
               ?>
+          </table>
+          -->
+          <table>
+            <?php
+
+            $query = "SELECT * FROM list_data;";
+            $list = $mysqli->query($query);
+
+            while ($row = $list->fetch_array(MYSQLI_ASSOC)):
+            echo "<tr>";
+
+            echo "<td><input type='checkbox' value='" . $row['id'] . "'></td><td>" . $row['description'] . "</td>";
+
+            echo "</tr>";
+
+            endwhile;
+
+            ?>
           </table>
         </div>
     </div>
