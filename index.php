@@ -2,8 +2,12 @@
 
 $mysqli = new mysqli("localhost", "lee", "lee1", "todo_list");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-    $mysqli->query("INSERT INTO list_data (description) VALUES ('$_POST[todo_new]');");
+if (isset($_POST['todo_new'])) {
+  $mysqli->query("INSERT INTO list_data (description) VALUES ('$_POST[todo_new]');");
+}
+elseif (isset($_POST['checkbox'])) {
+  printf($_post[checkbox]);
+  //$mysqli->query("DELETE FEOM list_data (description) VALUES ('$_POST[checkbox]');");
 }
 
 ?>
@@ -61,21 +65,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
           </table>
           -->
           <table>
-            <?php
+            <form method="post" action="index.php">
+              <?php
 
-            $query = "SELECT * FROM list_data;";
-            $list = $mysqli->query($query);
+              $query = "SELECT * FROM list_data;";
+              $list = $mysqli->query($query);
 
-            while ($row = $list->fetch_array(MYSQLI_ASSOC)):
-            echo "<tr>";
+              while ($row = $list->fetch_array(MYSQLI_ASSOC)):
+              echo "<tr>";
 
-            echo "<td><input type='checkbox' value='" . $row['id'] . "'></td><td>" . $row['description'] . "</td>";
+              echo "<td><input type='checkbox' value='" . $row['id'] . "'></td><td>" . $row['description'] . "</td>";
 
-            echo "</tr>";
+              echo "</tr>";
 
-            endwhile;
+              endwhile;
 
-            ?>
+              ?>
+              <input type="submit" value="remove checked items"></input>
+            </form>
           </table>
         </div>
     </div>
