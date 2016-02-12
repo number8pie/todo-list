@@ -6,8 +6,9 @@ if (isset($_POST['todo_new'])) {
   $mysqli->query("INSERT INTO list_data (description) VALUES ('$_POST[todo_new]');");
 }
 elseif (isset($_POST['checkbox'])) {
-  printf($_post[checkbox]);
-  //$mysqli->query("DELETE FEOM list_data (description) VALUES ('$_POST[checkbox]');");
+  foreach ($_POST['checkbox'] as $check) {
+    $mysqli->query("DELETE FROM list_data WHERE id = '$check';");
+  }
 }
 
 ?>
@@ -39,7 +40,7 @@ elseif (isset($_POST['checkbox'])) {
         </div>
         <div class="large-6 columns">
           <!--
-          Tried using a foreach loop, turnsout I don't need one! See below.
+          Tried using a foreach loop, turns out I don't need one! See below.
           <table>
               <?php
 
@@ -64,8 +65,8 @@ elseif (isset($_POST['checkbox'])) {
               ?>
           </table>
           -->
-          <table>
-            <form method="post" action="index.php">
+          <form method="post" action="index.php">
+            <table>
               <?php
 
               $query = "SELECT * FROM list_data;";
@@ -74,16 +75,16 @@ elseif (isset($_POST['checkbox'])) {
               while ($row = $list->fetch_array(MYSQLI_ASSOC)):
               echo "<tr>";
 
-              echo "<td><input type='checkbox' value='" . $row['id'] . "'></td><td>" . $row['description'] . "</td>";
+              echo "<td><input type='checkbox' name='checkbox[]' value='" . $row['id'] . "'></td><td>" . $row['description'] . "</td>";
 
               echo "</tr>";
 
               endwhile;
 
               ?>
-              <input type="submit" value="remove checked items"></input>
-            </form>
-          </table>
+            </table>
+            <input type="submit" value="remove checked items"></input>
+          </form>
         </div>
     </div>
 
