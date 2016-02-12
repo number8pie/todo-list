@@ -1,0 +1,73 @@
+h1,
+label,
+.list tr td,
+input[type="text"],
+input[type="text"]:focus {
+	font-family: 'journlregaular';
+}
+
+label,
+.list tr td,
+input[type="text"],
+input[type="text"]:focus {
+	font-size: 2em;
+}
+
+h1 {
+	font-size: 5em;
+	text-align: center;
+}
+
+.add,
+.list {
+	padding: 48px;
+}
+
+table,
+tbody {
+	border: none;
+}
+
+tr {
+	border-top: 1px dotted #a1a1a1;
+	border-right: none;
+	border-bottom: 1px dotted #a1a1a1;
+}
+
+input[type="text"],
+input[type="text"]:focus {
+	color: #e70000;	
+	border: none;
+	border-bottom: 1px dotted #a1a1a1;
+	box-shadow: none;
+}
+
+input[type="submit"] {
+	padding: 12px;
+	border: 3px dashed #6f6f6f;
+	border-radius: 12px;
+}
+
+input[type="submit"]:hover {
+	background-color: #fff;
+}
+
+input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+}
+
+.description {
+	width: 100%;
+}
+
+@font-face {
+	font-family: 'journalregular';
+	src: url('/fonts/journal-webfont.eot');
+	src: url('/fonts/journal-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/fonts/journal-webfont.woff') format('woff'),
+	     url('/fonts/journal-webfont.ttf') format('truetype'),
+	     url('/fonts/journal-webfont.svg#journalregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

@@ -19,7 +19,7 @@ elseif (isset($_POST['checkbox'])) {
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>number8pie's todo list</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
   </head>
@@ -32,63 +32,41 @@ elseif (isset($_POST['checkbox'])) {
 
     <div class="row">
         <div class="large-6 columns">
-          <form method="post" action="index.php">
-              <label for="todo_new">Enter new todo list item:</label>
-              <input type="text" name="todo_new" id="todo_new">
-              <input type="submit" value="add to list">
-          </form>
+        <div class="add">
+            <form method="post" action="index.php">
+                <label for="todo_new">Write a new item on the todo list:</label>
+                <input type="text" name="todo_new" id="todo_new">
+                <input type="submit" value="add to list">
+            </form>
+          </div>
         </div>
+
         <div class="large-6 columns">
-          <!--
-          Tried using a foreach loop, turns out I don't need one! See below.
-          <table>
-              <?php
+          <div class="list">
+            <form method="post" action="index.php">
+              <table>
+                <?php
 
-              //$query = "SELECT * FROM list_data;";
-              //$list = $mysqli->query($query);
+                $query = "SELECT * FROM list_data;";
+                $list = $mysqli->query($query);
 
-              //while ($row = $list->fetch_array(MYSQLI_ASSOC)):
-                  //echo "<tr>";
+                while ($row = $list->fetch_array(MYSQLI_ASSOC)):
+                echo "<tr>";
 
-                  //foreach($row as $list_item) {
-                      //echo "<td>" . $list_item . "</td>";
-                  //}
+                echo "<td><input type='checkbox' name='checkbox[]' value='" . $row['id'] . "'></td><td class='description'>" . $row['description'] . "</td>";
 
-                  //foreach ($row as $id => $description) {
-                    //echo "<td>" . $id . $description . "</td>";
-                  //}
+                echo "</tr>";
 
-                  //echo "</tr>";
+                endwhile;
 
-              //endwhile;
-
-              ?>
-          </table>
-          -->
-          <form method="post" action="index.php">
-            <table>
-              <?php
-
-              $query = "SELECT * FROM list_data;";
-              $list = $mysqli->query($query);
-
-              while ($row = $list->fetch_array(MYSQLI_ASSOC)):
-              echo "<tr>";
-
-              echo "<td><input type='checkbox' name='checkbox[]' value='" . $row['id'] . "'></td><td>" . $row['description'] . "</td>";
-
-              echo "</tr>";
-
-              endwhile;
-
-              ?>
-            </table>
-            <input type="submit" value="remove checked items"></input>
-          </form>
+                ?>
+              </table>
+              <input type="submit" value="remove checked items"></input>
+            </form>
+          </div>
         </div>
     </div>
 
-    <hr>
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/what-input.min.js"></script>
     <script src="js/foundation.min.js"></script>
