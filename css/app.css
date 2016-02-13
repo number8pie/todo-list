@@ -3,7 +3,7 @@ label,
 .list tr td,
 input[type="text"],
 input[type="text"]:focus {
-	font-family: 'journlregaular';
+	font-family: 'journalregular', sans-serif;
 }
 
 label,
@@ -44,8 +44,12 @@ input[type="text"]:focus {
 
 input[type="submit"] {
 	padding: 12px;
-	border: 3px dashed #6f6f6f;
+	border: 2px dashed #bababa;
 	border-radius: 12px;
+	-webkit-transition: .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	-o-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
 }
 
 input[type="submit"]:hover {
