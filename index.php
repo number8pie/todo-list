@@ -2,7 +2,11 @@
 
 $mysqli = new mysqli("localhost", "lee", "lee1", "todo_list");
 
-if (isset($_POST['todo_new'])) {
+if ($mysqli->connect_errno) {
+  echo 'Unable to connect to database [' . $mysqli->connect_error . ']';
+  exit();
+}
+elseif (isset($_POST['todo_new'])) {
   $mysqli->query("INSERT INTO list_data (description) VALUES ('$_POST[todo_new]');");
 }
 elseif (isset($_POST['checkbox'])) {
