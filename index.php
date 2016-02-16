@@ -50,14 +50,11 @@ elseif (isset($_POST['checkbox'])) {
                 $query = "SELECT * FROM list_data;";
                 $list = $mysqli->query($query);
 
-                while ($row = $list->fetch_array(MYSQLI_ASSOC)):
-                echo "<tr>";
-
-                echo "<td><input type='checkbox' name='checkbox[]' value='" . $row['id'] . "'></td><td class='description'>" . $row['description'] . "</td>";
-
-                echo "</tr>";
-
-                endwhile;
+                while ($row = $list->fetch_array(MYSQLI_ASSOC)){
+                  echo "<tr>";
+                  echo "<td><input type='checkbox' name='checkbox[]' value='" . $row['id'] . "'></td><td class='description'>" . $row['description'] . "</td>";
+                  echo "</tr>";
+                }
 
                 ?>
               </table>

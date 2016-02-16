@@ -56,6 +56,10 @@ input[type="submit"]:hover {
 	background-color: #fff;
 }
 
+input[type="submit"]:active {
+	outline: none !important;
+}
+
 input[type="checkbox"] {
 	width: 18px;
 	height: 18px;
