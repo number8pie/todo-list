@@ -40,7 +40,7 @@ elseif (isset($_POST['checkbox'])) {
             <form method="post" action="index.php">
                 <label for="todo_new">Write a new item on the todo list:</label>
                 <input type="text" name="todo_new" id="todo_new">
-                <input type="submit" value="add to list">
+                <input type="submit" class="button" value="add to list">
             </form>
           </div>
         </div>
@@ -62,7 +62,7 @@ elseif (isset($_POST['checkbox'])) {
 
                 ?>
               </table>
-              <input type="submit" value="remove checked items"></input>
+              <input type="submit" class="button" value="remove checked items"></input>
             </form>
           </div>
         </div>

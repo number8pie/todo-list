@@ -42,24 +42,6 @@ input[type="text"]:focus {
 	box-shadow: none;
 }
 
-input[type="submit"] {
-	padding: 12px;
-	border: 2px dashed #bababa;
-	border-radius: 12px;
-	-webkit-transition: .5s ease-in-out;
-	-moz-transition: .5s ease-in-out;
-	-o-transition: .5s ease-in-out;
-	transition: .5s ease-in-out;
-}
-
-input[type="submit"]:hover {
-	background-color: #fff;
-}
-
-input[type="submit"]:active {
-	outline: none !important;
-}
-
 input[type="checkbox"] {
 	width: 18px;
 	height: 18px;
